@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 
+//Import Components
+import Nav from './components/Nav';
+import Video from './components/Video';
+
 function App() {
+  //Write JS here
+  const [counter, setCounter] = useState(0);
+  const [toggle, setToggle] = useState(false);
+
+  const incrementor = () => {
+    setCounter(counter + 1)
+    console.log(counter);
+  };
+  const toggler = () => {
+    setToggle((prev) => !prev);
+  };
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>Hello react</h1>
+     <button onClick={incrementor}>Increment</button>
+     <h2>{counter}</h2>
     </div>
   );
 }
